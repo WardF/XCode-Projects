@@ -7,16 +7,35 @@
 //
 
 #import "XYZToDoListViewController.h"
+#import "XYZToDoItem.h"
 
 @interface XYZToDoListViewController ()
+
+@property NSMutableArray *toDoItems;
 
 @end
 
 @implementation XYZToDoListViewController
+
+- (void)loadInitialData {
+    XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
+    item1.itemName = @"Buy milk";
+    [self.toDoItems addObject:item1];
+    
+    XYZToDoItem *item2 = [[XYZToDoItem alloc] init];
+    item2.itemName = @"Buy eggs";
+    [self.toDoItems addObject:item2];
+    
+    XYZToDoItem *item3 = [[XYZToDoItem alloc] init];
+    item3.itemName = @"Read a book";
+    [self.toDoItems addObject:item3];
+}
+
 - (IBAction)unwindToList:(UIStoryboardSegue *)seque
 {
     
 }
+
 - (id)initWithStyle:(UITableViewStyle)style
 {
     self = [super initWithStyle:style];
@@ -29,6 +48,9 @@
 - (void)viewDidLoad
 {
     [super viewDidLoad];
+
+    self.toDoItems = [[NSMutableArray alloc] init];
+    [self loadInitialData];
 
     // Uncomment the following line to preserve selection between presentations.
     // self.clearsSelectionOnViewWillAppear = NO;
@@ -49,23 +71,25 @@
 {
 
     // Return the number of sections.
-    return 0;
+    return 1;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
 
+    return [self.toDoItems count];
     // Return the number of rows in the section.
-    return 0;
+    //return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
-    static NSString *CellIdentifier = @"Cell";
+    static NSString *CellIdentifier = @"ListPrototypeCell";
     UITableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:CellIdentifier forIndexPath:indexPath];
     
     // Configure the cell...
-    
+    XYZToDoItem *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
+    cell.textLabel.text = toDoItem.itemName;
     return cell;
 }
 
