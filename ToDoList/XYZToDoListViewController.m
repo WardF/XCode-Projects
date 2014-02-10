@@ -7,6 +7,7 @@
 //
 
 #import "XYZToDoListViewController.h"
+#import "XYZAddToDoItemViewController.h"
 #import "XYZToDoItem.h"
 
 @interface XYZToDoListViewController ()
@@ -16,6 +17,8 @@
 @end
 
 @implementation XYZToDoListViewController
+
+
 
 - (void)loadInitialData {
     XYZToDoItem *item1 = [[XYZToDoItem alloc] init];
@@ -33,6 +36,18 @@
 
 - (IBAction)unwindToList:(UIStoryboardSegue *)seque
 {
+ 
+    XYZAddToDoItemViewController *source = [seque sourceViewController];
+    XYZToDoItem *item = source.toDoItem;
+    if(item != nil) {
+        [self.toDoItems addObject:item];
+        //Reload data in the table.
+        //The table view doesn't keep track of data; the view controller
+        //is responsible for notifying the table view when there is new data
+        //to display.
+        [self.tableView reloadData];
+        
+    }
     
 }
 
@@ -90,19 +105,24 @@
     // Configure the cell...
     XYZToDoItem *toDoItem = [self.toDoItems objectAtIndex:indexPath.row];
     cell.textLabel.text = toDoItem.itemName;
+    if(toDoItem.completed) {
+        cell.accessoryType = UITableViewCellAccessoryCheckmark;
+    } else {
+        cell.accessoryType = UITableViewCellAccessoryNone;
+    }
     return cell;
 }
 
-/*
+
 // Override to support conditional editing of the table view.
 - (BOOL)tableView:(UITableView *)tableView canEditRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the specified item to be editable.
     return YES;
 }
-*/
 
-/*
+
+
 // Override to support editing the table view.
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath
 {
@@ -114,25 +134,25 @@
         // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
     }   
 }
-*/
 
-/*
+
+
 // Override to support rearranging the table view.
 - (void)tableView:(UITableView *)tableView moveRowAtIndexPath:(NSIndexPath *)fromIndexPath toIndexPath:(NSIndexPath *)toIndexPath
 {
 }
-*/
 
-/*
+
+
 // Override to support conditional rearranging of the table view.
 - (BOOL)tableView:(UITableView *)tableView canMoveRowAtIndexPath:(NSIndexPath *)indexPath
 {
     // Return NO if you do not want the item to be re-orderable.
     return YES;
 }
-*/
 
-/*
+
+
 #pragma mark - Navigation
 
 // In a story board-based application, you will often want to do a little preparation before navigation
@@ -142,6 +162,25 @@
     // Pass the selected object to the new view controller.
 }
 
- */
+
+
+#pragma mark - Table view delegate
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
+{
+    // Deselect the cell immediately after selection.
+    [tableView deselectRowAtIndexPath:indexPath animated:NO];
+    
+    // Search for corresponding XYZToDoItem in toDoItems array
+    XYZToDoItem *tappedItem = [self.toDoItems objectAtIndex:indexPath.row];
+    
+    // Toggle the completion state of the tapped item
+    tappedItem.completed = !tappedItem.completed;
+    
+    // Tell the table view to reload the row whose data you just updated
+    [tableView reloadRowsAtIndexPaths:@[indexPath] withRowAnimation:UITableViewRowAnimationNone];
+    
+}
+
 
 @end
