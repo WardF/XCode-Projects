@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A30FD11F18ABEEA000904DDA /* WOMMainTaskListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = A30FD11E18ABEEA000904DDA /* WOMMainTaskListViewController.m */; };
+		A30FD12118ABEEF700904DDA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A30FD12018ABEEF700904DDA /* Main.storyboard */; };
+		A30FD12418ABF01D00904DDA /* WOMTaskItem.m in Sources */ = {isa = PBXBuildFile; fileRef = A30FD12318ABF01D00904DDA /* WOMTaskItem.m */; };
+		A30FD12718ABF56400904DDA /* WOMWorkOrder.m in Sources */ = {isa = PBXBuildFile; fileRef = A30FD12618ABF56400904DDA /* WOMWorkOrder.m */; };
 		A377173F18AA8A170076CB03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A377173E18AA8A170076CB03 /* Foundation.framework */; };
 		A377174118AA8A170076CB03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A377174018AA8A170076CB03 /* CoreGraphics.framework */; };
 		A377174318AA8A170076CB03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A377174218AA8A170076CB03 /* UIKit.framework */; };
@@ -35,6 +39,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A30FD11D18ABEEA000904DDA /* WOMMainTaskListViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOMMainTaskListViewController.h; sourceTree = "<group>"; };
+		A30FD11E18ABEEA000904DDA /* WOMMainTaskListViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMMainTaskListViewController.m; sourceTree = "<group>"; };
+		A30FD12018ABEEF700904DDA /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		A30FD12218ABF01D00904DDA /* WOMTaskItem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOMTaskItem.h; sourceTree = "<group>"; };
+		A30FD12318ABF01D00904DDA /* WOMTaskItem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMTaskItem.m; sourceTree = "<group>"; };
+		A30FD12518ABF56400904DDA /* WOMWorkOrder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WOMWorkOrder.h; sourceTree = "<group>"; };
+		A30FD12618ABF56400904DDA /* WOMWorkOrder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = WOMWorkOrder.m; sourceTree = "<group>"; };
 		A377173B18AA8A170076CB03 /* Dwarf Fortress Work Order Manager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Dwarf Fortress Work Order Manager.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A377173E18AA8A170076CB03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		A377174018AA8A170076CB03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -115,11 +126,18 @@
 		A377174618AA8A170076CB03 /* Dwarf Fortress Work Order Manager */ = {
 			isa = PBXGroup;
 			children = (
+				A377175218AA8A170076CB03 /* Dwarf_Fortress_Work_Order_Manager.xcdatamodeld */,
+				A377175518AA8A170076CB03 /* Images.xcassets */,
+				A30FD12018ABEEF700904DDA /* Main.storyboard */,
+				A377174718AA8A170076CB03 /* Supporting Files */,
 				A377174F18AA8A170076CB03 /* WOMAppDelegate.h */,
 				A377175018AA8A170076CB03 /* WOMAppDelegate.m */,
-				A377175518AA8A170076CB03 /* Images.xcassets */,
-				A377175218AA8A170076CB03 /* Dwarf_Fortress_Work_Order_Manager.xcdatamodeld */,
-				A377174718AA8A170076CB03 /* Supporting Files */,
+				A30FD11D18ABEEA000904DDA /* WOMMainTaskListViewController.h */,
+				A30FD11E18ABEEA000904DDA /* WOMMainTaskListViewController.m */,
+				A30FD12218ABF01D00904DDA /* WOMTaskItem.h */,
+				A30FD12318ABF01D00904DDA /* WOMTaskItem.m */,
+				A30FD12518ABF56400904DDA /* WOMWorkOrder.h */,
+				A30FD12618ABF56400904DDA /* WOMWorkOrder.m */,
 			);
 			path = "Dwarf Fortress Work Order Manager";
 			sourceTree = "<group>";
@@ -229,6 +247,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30FD12118ABEEF700904DDA /* Main.storyboard in Resources */,
 				A377174B18AA8A170076CB03 /* InfoPlist.strings in Resources */,
 				A377175618AA8A170076CB03 /* Images.xcassets in Resources */,
 			);
@@ -249,7 +268,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A30FD11F18ABEEA000904DDA /* WOMMainTaskListViewController.m in Sources */,
+				A30FD12418ABF01D00904DDA /* WOMTaskItem.m in Sources */,
 				A377175418AA8A170076CB03 /* Dwarf_Fortress_Work_Order_Manager.xcdatamodeld in Sources */,
+				A30FD12718ABF56400904DDA /* WOMWorkOrder.m in Sources */,
 				A377175118AA8A170076CB03 /* WOMAppDelegate.m in Sources */,
 				A377174D18AA8A170076CB03 /* main.m in Sources */,
 			);
@@ -454,6 +476,7 @@
 				A377176F18AA8A170076CB03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		A377177018AA8A170076CB03 /* Build configuration list for PBXNativeTarget "Dwarf Fortress Work Order ManagerTests" */ = {
 			isa = XCConfigurationList;
@@ -462,6 +485,7 @@
 				A377177218AA8A170076CB03 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 
