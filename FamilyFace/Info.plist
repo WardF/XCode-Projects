@@ -33,7 +33,7 @@
 		<string>DejaVuSansMono.ttf</string>
 	</array>
 	<key>UIApplicationExitsOnSuspend</key>
-	<false/>
+	<true/>
 	<key>UIPrerenderedIcon</key>
 	<true/>
 	<key>UIStatusBarHidden</key>
